@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/fragmentScreenOfLogin">
+
+    <fragment
+        android:id="@+id/fragmentScreenOfLogin"
+        android:name="com.example.comprepoupe.presentation.fragments.FragmentScreenOfLogin"
+        android:label="fragment_screen_of_login"
+        tools:layout="@layout/fragment_screen_of_login" />
+</navigation>

@@ -9,5 +9,14 @@
         android:id="@+id/fragmentScreenOfLogin"
         android:name="com.example.comprepoupe.presentation.fragments.FragmentScreenOfLogin"
         android:label="fragment_screen_of_login"
-        tools:layout="@layout/fragment_screen_of_login" />
+        tools:layout="@layout/fragment_screen_of_login" >
+        <action
+            android:id="@+id/action_fragmentScreenOfLogin_to_fragmentScreenOfRegister"
+            app:destination="@id/fragmentScreenOfRegister" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentScreenOfRegister"
+        android:name="com.example.comprepoupe.presentation.fragments.FragmentScreenOfRegister"
+        android:label="fragment_screen_of_register"
+        tools:layout="@layout/fragment_screen_of_register" />
 </navigation>

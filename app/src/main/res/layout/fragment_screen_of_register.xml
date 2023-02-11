@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".presentation.fragments.FragmentScreenOfRegister">
+
+    <View
+        android:id="@+id/idContainerComponents"
+        style="@style/ContainerComponents"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/idEditTextNomeCadastro"
+        style="@style/Edit_Text"
+        android:hint="Nome"
+        app:layout_constraintEnd_toEndOf="@+id/idContainerComponents"
+        app:layout_constraintStart_toStartOf="@+id/idContainerComponents"
+        app:layout_constraintTop_toTopOf="@+id/idContainerComponents" />
+
+    <EditText
+        android:id="@+id/idEditTextEmailCadastro"
+      style="@style/Edit_Text"
+      android:hint="Email"
+        android:drawableRight="@drawable/ic_email"
+        app:layout_constraintEnd_toEndOf="@+id/idContainerComponents"
+        app:layout_constraintStart_toStartOf="@+id/idContainerComponents"
+        app:layout_constraintTop_toBottomOf="@+id/idEditTextNomeCadastro"/>
+
+    <EditText
+      android:id="@+id/idEditTextSenhaCadastro"
+      style="@style/Edit_Text"
+        android:hint="Senha"
+        android:drawableRight="@drawable/ic_eye"
+        app:layout_constraintEnd_toEndOf="@+id/idContainerComponents"
+        app:layout_constraintStart_toStartOf="@+id/idContainerComponents"
+        app:layout_constraintTop_toBottomOf="@+id/idEditTextEmailCadastro"/>
+
+  <androidx.appcompat.widget.AppCompatButton
+     android:id="@+id/idButtonTelaCadastro"
+    style="@style/Button"
+      android:text="Cadastre-se"
+      android:textStyle="bold"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/idContainerComponents"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

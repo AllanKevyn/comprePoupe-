@@ -3,7 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/fragment_screen_of_login.xml" value="0.24427083333333333" />
+        <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/drawable/backgroundlogin.xml" value="0.11018518518518519" />
+        <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/drawable/button.xml" value="0.1" />
+        <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/drawable/container_components.xml" value="0.1" />
+        <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/drawable/edit_text_background.xml" value="0.1" />
+        <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/fragment_screen_of_login.xml" value="0.2" />
+        <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/fragment_screen_of_register.xml" value="0.2" />
       </map>
     </option>
   </component>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "563153899908",
+    "project_id": "compre-e-poupe-app",
+    "storage_bucket": "compre-e-poupe-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:563153899908:android:848d149520723e6a61cdd1",
+        "android_client_info": {
+          "package_name": "com.example.comprepoupe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "563153899908-u998shtcl2e5nr4ffo74jf6j6inkt43q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAePbSTHwBLslzUA86acHQdKLkyPWNRzBg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "563153899908-u998shtcl2e5nr4ffo74jf6j6inkt43q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

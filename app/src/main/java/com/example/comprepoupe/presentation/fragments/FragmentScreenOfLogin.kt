@@ -5,15 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import androidx.navigation.fragment.findNavController
 import com.example.comprepoupe.R
 import com.example.comprepoupe.databinding.FragmentScreenOfLoginBinding
-import com.example.comprepoupe.presentation.fragments.FragmentScreenOfLogin.Companion.REGISTER
-import com.google.firebase.ktx.Firebase
 
 
 class FragmentScreenOfLogin : Fragment() {
-
 
 
     private lateinit var binding: FragmentScreenOfLoginBinding

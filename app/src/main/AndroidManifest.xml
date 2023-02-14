@@ -11,6 +11,10 @@
         android:theme="@style/Theme.ComprePoupe">
         <activity
             android:name=".presentation.activitys.MainActivity"
+            android:exported="true" />
+        <activity
+
+            android:name=".presentation.activitys.ReceivingScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -11,17 +11,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportActionBar?.hide()
-        setup()
+
     }
-    private fun setup(){
-        setupFragment()
-    }
-    private fun setupFragment(){
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.idFragmentContainerView) as NavHostFragment
-        val navController:NavController = navHostFragment.navController
-        NavigationUI.setupActionBarWithNavController(this, navController)
-    }
+
 
 
 }

@@ -4,8 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.activitys.MainActivity">
+    tools:context=".presentation.activitys.ReceivingScreenActivity">
 
-
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/idFragmentContainerView"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:navGraph="@navigation/navigation"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

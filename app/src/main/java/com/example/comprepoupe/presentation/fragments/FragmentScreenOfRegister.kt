@@ -4,17 +4,21 @@ import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
-import com.example.comprepoupe.R
 import com.example.comprepoupe.databinding.FragmentScreenOfRegisterBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
+import com.google.firebase.firestore.FirebaseFirestore
+import java.util.*
+import kotlin.collections.HashMap
 
 class FragmentScreenOfRegister : Fragment() {
 
@@ -34,11 +38,11 @@ class FragmentScreenOfRegister : Fragment() {
     ): View? {
 
         binding = FragmentScreenOfRegisterBinding.inflate(inflater, container, false)
-        setupOnCreate()
+        setupOnCreateView()
         return binding.root
     }
 
-    private fun setupOnCreate() {
+    private fun setupOnCreateView() {
         initializationComponents()
     }
 
@@ -77,30 +81,55 @@ class FragmentScreenOfRegister : Fragment() {
                     snackbar.show()
                 }
             } else {
-                view?.let { it1 -> CadastrarUsuario(it1) }
+                view?.let {
+                    CadastrarUsuario(email, senha)
+                }
             }
         }
     }
 
-    private fun CadastrarUsuario(view: View) {
-        val email = edit_email.text.toString()
-        val senha = edit_senha.text.toString()
 
+    private fun CadastrarUsuario(email: String, senha: String) {
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
 
-                    val snackbar = Snackbar.make(view, messeges[1], Snackbar.LENGTH_SHORT)
+                    salvarDadosDoUsuario()
+
+                    val snackbar = Snackbar.make(view!!, messeges[1], Snackbar.LENGTH_SHORT)
+                    snackbar.setBackgroundTint(Color.WHITE)
+                    snackbar.setTextColor(Color.BLACK)
+                    snackbar.show()
+                } else {
+                    val erro: String
+                    try {
+                        throw task.exception!!
+                    } catch (e: FirebaseAuthWeakPasswordException) {
+                        erro = "Digite uma senha de no mínimo 6 caracteres"
+                    } catch (e: FirebaseAuthInvalidUserException) {
+                        erro = "E-mail inválido"
+                    } catch (e: FirebaseAuthInvalidCredentialsException) {
+                        erro = "Esta conta ja foi cadastrada"
+                    } catch (e: Exception) {
+                        erro = "Erro desconhecido: ${e.message}"
+                    }
+
+                    val snackbar = Snackbar.make(view!!, erro, Snackbar.LENGTH_SHORT)
                     snackbar.setBackgroundTint(Color.WHITE)
                     snackbar.setTextColor(Color.BLACK)
                     snackbar.show()
 
-                }else{
-                    task.exception
-                    task.result
                 }
-
             }
+    }
+
+    private fun salvarDadosDoUsuario(){
+        val nome = edit_nome.text.toString()
+        val dataBase = FirebaseFirestore.getInstance()
+
+        val usuarios: MutableMap<String, Any> = HashMap()
+        usuarios.put("nome",nome)
+
     }
 
     private fun backPage() {

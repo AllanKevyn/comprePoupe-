@@ -7,10 +7,11 @@
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/drawable/button.xml" value="0.1" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/drawable/container_components.xml" value="0.1" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/drawable/edit_text_background.xml" value="0.1" />
+        <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/drawable/ic_eye.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/activity_receiving_screen.xml" value="0.25" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/fragment_screen_of_login.xml" value="0.264" />
-        <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/fragment_screen_of_register.xml" value="0.2" />
+        <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/fragment_screen_of_register.xml" value="0.4" />
       </map>
     </option>
   </component>

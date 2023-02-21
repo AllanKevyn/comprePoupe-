@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     xmlns:android="http://schemas.android.com/apk/res/android">
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -26,7 +27,7 @@
 
     <View
         android:id="@+id/idContainerComponents"
-        style="@style/ContainerComponents"
+        style="@style/ContainerComponentsLogin"
         app:layout_constraintTop_toBottomOf="@+id/IvLogo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -47,7 +48,7 @@
         style="@style/Edit_Text"
         android:hint="Senha"
         android:drawableRight="@drawable/ic_eye"
-        android:inputType="numberPassword"
+        android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="@+id/idContainerComponents"
         app:layout_constraintEnd_toEndOf="@+id/idContainerComponents"
         app:layout_constraintTop_toBottomOf="@id/idEdit_email" />

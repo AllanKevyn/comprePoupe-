@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="ContainerComponents">
+    <style name="ContainerUser">
+        <item name="android:layout_width">220dp</item>
+        <item name="android:layout_height">220dp</item>
+        <item name="android:background">@drawable/container_user</item>
+        <item name="android:layout_marginTop">50dp</item>
+    </style>
+
+    <style name="ContainerComponentsRegister">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">250dp</item>
+        <item name="android:background">@drawable/container_components</item>
+        <item name="android:layout_margin">20dp</item>
+    </style>
+
+    <style name="ContainerComponentsLogin">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">250dp</item>
         <item name="android:background">@drawable/container_components</item>

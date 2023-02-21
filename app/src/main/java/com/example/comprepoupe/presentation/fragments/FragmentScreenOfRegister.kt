@@ -2,6 +2,7 @@ package com.example.comprepoupe.presentation.fragments
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,13 +12,15 @@ import android.widget.EditText
 import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
 import com.example.comprepoupe.databinding.FragmentScreenOfRegisterBinding
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
-import java.util.*
 import kotlin.collections.HashMap
 
 class FragmentScreenOfRegister : Fragment() {
@@ -26,6 +29,8 @@ class FragmentScreenOfRegister : Fragment() {
     private lateinit var edit_senha: EditText
     private lateinit var edit_email: EditText
     private lateinit var bt_cadastrar: Button
+
+    lateinit var usuarioID: String
 
     val messeges = arrayOf("Preencha todos os campos", "Cadastro realizado com sucesso")
 
@@ -43,10 +48,10 @@ class FragmentScreenOfRegister : Fragment() {
     }
 
     private fun setupOnCreateView() {
-        initializationComponents()
+        startComponents()
     }
 
-    private fun initializationComponents() {
+    private fun startComponents() {
         edit_nome = binding.idEditTextNomeCadastro
         edit_email = binding.idEditTextEmailCadastro
         edit_senha = binding.idEditTextSenhaCadastro
@@ -82,19 +87,19 @@ class FragmentScreenOfRegister : Fragment() {
                 }
             } else {
                 view?.let {
-                    CadastrarUsuario(email, senha)
+                    registerUser(email, senha)
                 }
             }
         }
     }
 
 
-    private fun CadastrarUsuario(email: String, senha: String) {
+    private fun registerUser(email: String, senha: String) {
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
 
-                    salvarDadosDoUsuario()
+                    saveUserData()
 
                     val snackbar = Snackbar.make(view!!, messeges[1], Snackbar.LENGTH_SHORT)
                     snackbar.setBackgroundTint(Color.WHITE)
@@ -123,13 +128,23 @@ class FragmentScreenOfRegister : Fragment() {
             }
     }
 
-    private fun salvarDadosDoUsuario(){
+    private fun saveUserData(){
         val nome = edit_nome.text.toString()
         val dataBase = FirebaseFirestore.getInstance()
 
         val usuarios: MutableMap<String, Any> = HashMap()
         usuarios.put("nome",nome)
 
+        usuarioID = FirebaseAuth.getInstance().currentUser?.uid.toString()
+        val documentReference: DocumentReference = dataBase.collection("Usuarios").document(usuarioID)
+        documentReference.set(usuarios)
+
+            .addOnSuccessListener(OnSuccessListener {
+                Log.d("dataBase", "Sucesso ao salvar os dados")
+            })
+            .addOnFailureListener(OnFailureListener { e ->
+                Log.d("dataBase_erro", "Erro ao salvar os dados", e)
+            })
     }
 
     private fun backPage() {

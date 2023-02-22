@@ -1,5 +1,6 @@
 package com.example.comprepoupe.presentation.fragments
 
+
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
@@ -45,21 +46,21 @@ class FragmentScreenOfLogin : Fragment() {
         setup()
     }
 
-    override fun onStart() {
-        super.onStart()
-
-        //codigo "manter conectado", UTILIZAR QUANDO OUVER UMA OPÇÃO DE: Logout
-
-        //    val sharedPrefs = requireActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
-        //            val isUserLoggedIn = sharedPrefs.getBoolean("isUserLoggedIn", false)
-        //            if (isUserLoggedIn) {
-        //                val bundle = Bundle().apply {}
-        //                findNavController().navigate(
-        //                    R.id.action_fragmentScreenOfLogin_to_fragmentSecondStageOfRegistration,
-        //                    bundle
-        //                )
-        //            }
-    }
+    //override fun onStart() {
+    //        super.onStart()
+    //
+    //        //codigo "manter conectado", que está dando erro
+    //
+    //            val sharedPrefs = requireActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+    //                    val isUserLoggedIn = sharedPrefs.getBoolean("isUserLoggedIn", false)
+    //                    if (isUserLoggedIn) {
+    //                        val bundle = Bundle().apply {}
+    //                        findNavController().navigate(
+    //                            R.id.action_fragmentScreenOfLogin_to_fragmentSecondStageOfRegistration,
+    //                            bundle
+    //                        )
+    //                    }
+    //    }
 
     private fun setup() {
         setupClicks()
@@ -107,6 +108,7 @@ class FragmentScreenOfLogin : Fragment() {
             if (task.isSuccessful) {
                 progress_bar.visibility = View.VISIBLE
 
+
                 val handler = Handler(Looper.getMainLooper())
                 handler.postDelayed({
 
@@ -118,13 +120,14 @@ class FragmentScreenOfLogin : Fragment() {
 
                 }, delayInMillis)
 
-                //codigo "manter conectado", UTILIZAR QUANDO OUVER UMA OPÇÃO DE: Logout
+               // codigo "manter conectado", que está dando erro
+                //
+                //                   val sharedPrefs =
+                //                                    requireActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+                //                                val editor = sharedPrefs.edit()
+                //                                editor.putBoolean("isUserLoggedIn", true)
+                //                                editor.apply()
 
-                //   val sharedPrefs =
-                //                    requireActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
-                //                val editor = sharedPrefs.edit()
-                //                editor.putBoolean("isUserLoggedIn", true)
-                //                editor.apply()
             } else {
                 val erro: String
 

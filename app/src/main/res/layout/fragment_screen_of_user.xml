@@ -12,56 +12,59 @@
         style="@style/ContainerUser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/idImageViewUser"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:src="@drawable/ic_user"
-        app:layout_constraintTop_toTopOf="@id/idContainerComponents"
-        app:layout_constraintStart_toStartOf="@id/idContainerComponents"
+        app:layout_constraintBottom_toBottomOf="@id/idContainerComponents"
         app:layout_constraintEnd_toEndOf="@id/idContainerComponents"
-        app:layout_constraintBottom_toBottomOf="@id/idContainerComponents"/>
+        app:layout_constraintStart_toStartOf="@id/idContainerComponents"
+        app:layout_constraintTop_toTopOf="@id/idContainerComponents" />
 
     <ImageView
         android:id="@+id/idImageViewIcUser"
-        android:src="@drawable/ic_user"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_user"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/idContainerComponents"/>
+        app:layout_constraintTop_toBottomOf="@id/idContainerComponents" />
 
     <ImageView
         android:id="@+id/idImageViewIcEmail"
-        android:src="@drawable/ic_email"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_email"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/idImageViewIcUser"/>
+        app:layout_constraintTop_toBottomOf="@id/idImageViewIcUser" />
 
     <TextView
         android:id="@+id/idTextViewUser"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginTop="28dp"
         android:text=""
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/idImageViewIcUser"
         app:layout_constraintTop_toBottomOf="@id/idContainerComponents" />
 
     <TextView
         android:id="@+id/idTextViewEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginTop="48dp"
         android:text=""
         android:textColor="@color/black"
@@ -72,17 +75,17 @@
 
     <Button
         android:id="@+id/idButtonLogout"
-        android:text="Deslogar"
-        android:textSize="20dp"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/black"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:textAllCaps="false"
-        app:layout_constraintTop_toBottomOf="@id/idImageViewIcEmail"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"/>
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/black"
+        android:text="Deslogar"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/idImageViewIcEmail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

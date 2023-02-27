@@ -14,6 +14,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+<<<<<<< HEAD:app/src/main/java/com/example/comprepoupe/presentation/activitys/MainActivity.kt
 
 
+=======
+>>>>>>> origin/main:app/src/main/java/com/example/comprepoupe/MainActivity.kt
 }

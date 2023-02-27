@@ -41,26 +41,18 @@ class FragmentScreenOfLogin : Fragment() {
         return binding.root
     }
 
+    private fun startComponents() {
+        edit_email = binding.idEditEmail
+        edit_senha = binding.idEditSenha
+        button_entrar = binding.idButtonEntrar
+        progress_bar = binding.idProgressBar
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setup()
     }
 
-    //override fun onStart() {
-    //        super.onStart()
-    //
-    //        //codigo "manter conectado", que está dando erro
-    //
-    //            val sharedPrefs = requireActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
-    //                    val isUserLoggedIn = sharedPrefs.getBoolean("isUserLoggedIn", false)
-    //                    if (isUserLoggedIn) {
-    //                        val bundle = Bundle().apply {}
-    //                        findNavController().navigate(
-    //                            R.id.action_fragmentScreenOfLogin_to_fragmentSecondStageOfRegistration,
-    //                            bundle
-    //                        )
-    //                    }
-    //    }
 
     private fun setup() {
         setupClicks()
@@ -75,12 +67,6 @@ class FragmentScreenOfLogin : Fragment() {
         }
     }
 
-    private fun startComponents() {
-        edit_email = binding.idEditEmail
-        edit_senha = binding.idEditSenha
-        button_entrar = binding.idButtonEntrar
-        progress_bar = binding.idProgressBar
-    }
 
     private fun setupButtonEntrar() {
         val email = edit_email.text
@@ -108,7 +94,6 @@ class FragmentScreenOfLogin : Fragment() {
             if (task.isSuccessful) {
                 progress_bar.visibility = View.VISIBLE
 
-
                 val handler = Handler(Looper.getMainLooper())
                 handler.postDelayed({
 
@@ -119,14 +104,6 @@ class FragmentScreenOfLogin : Fragment() {
                     )
 
                 }, delayInMillis)
-
-               // codigo "manter conectado", que está dando erro
-                //
-                //                   val sharedPrefs =
-                //                                    requireActivity().getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
-                //                                val editor = sharedPrefs.edit()
-                //                                editor.putBoolean("isUserLoggedIn", true)
-                //                                editor.apply()
 
             } else {
                 val erro: String

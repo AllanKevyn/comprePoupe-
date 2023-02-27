@@ -13,9 +13,7 @@ import com.example.comprepoupe.R
 import com.example.comprepoupe.databinding.FragmentScreenOfUserBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
-import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
-import org.w3c.dom.Text
 
 class FragmentScreenOfUser : Fragment() {
 
@@ -64,19 +62,17 @@ class FragmentScreenOfUser : Fragment() {
             R.id.action_fragmentScreenOfUser_to_fragmentScreenOfLogin,
             bundle
         )
-
     }
 
     private fun backPage() {
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
-            findNavController().popBackStack()
+       requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            null
         }
     }
 
     override fun onStart() {
         super.onStart()
         retrieveUserData()
-
     }
 
     private fun retrieveUserData() {
@@ -86,8 +82,8 @@ class FragmentScreenOfUser : Fragment() {
             dataBase.collection("Usuarios").document(usuarioID)
         documentReference.addSnapshotListener { snapshot, e ->
             if (snapshot != null) {
-                nomeUsuario.setText(snapshot.getString("nome"))
-                emailUsuario.setText(email)
+                snapshot.getString("nome").also { nomeUsuario.text = it }
+                emailUsuario.text = email
             }
         }
     }

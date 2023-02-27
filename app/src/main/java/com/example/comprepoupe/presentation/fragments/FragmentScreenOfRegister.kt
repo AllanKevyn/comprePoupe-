@@ -27,6 +27,7 @@ class FragmentScreenOfRegister : Fragment() {
 
     private lateinit var edit_nome: EditText
     private lateinit var edit_senha: EditText
+    //private lateinit var edit_confirmarSenha: EditText
     private lateinit var edit_email: EditText
     private lateinit var bt_cadastrar: Button
 
@@ -56,6 +57,7 @@ class FragmentScreenOfRegister : Fragment() {
         edit_email = binding.idEditTextEmailCadastro
         edit_senha = binding.idEditTextSenhaCadastro
         bt_cadastrar = binding.idButtonTelaCadastro
+        //edit_confirmarSenha = binding.idEditTextConfirmarSenha
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -73,6 +75,8 @@ class FragmentScreenOfRegister : Fragment() {
             val nome = edit_nome.text.toString()
             val email = edit_email.text.toString()
             val senha = edit_senha.text.toString()
+            // val confirmarSenha = edit_confirmarSenha.text.toString()
+
             if (nome.isEmpty() || email.isEmpty() || senha.isEmpty()) {
                 val snackbar =
                     view?.let { it1 -> Snackbar.make(it1, messeges[0], Snackbar.LENGTH_SHORT) }
@@ -90,6 +94,7 @@ class FragmentScreenOfRegister : Fragment() {
                     registerUser(email, senha)
                 }
             }
+
         }
     }
 
@@ -128,15 +133,31 @@ class FragmentScreenOfRegister : Fragment() {
             }
     }
 
-    private fun saveUserData(){
+//    private fun confirmPassword(senha: String, confirmarSenha: String) {
+//        FirebaseAuth.getInstance().confirmPasswordReset(senha, confirmarSenha)
+//            .addOnCompleteListener { task ->
+//
+//                if (task.isSuccessful) {
+//
+//                    val snackbar = Snackbar.make(view!!, messeges[1], Snackbar.LENGTH_SHORT)
+//                    snackbar.setBackgroundTint(Color.WHITE)
+//                    snackbar.setTextColor(Color.BLACK)
+//                    snackbar.show()
+//                }
+//            }
+//    }
+
+
+    private fun saveUserData() {
         val nome = edit_nome.text.toString()
         val dataBase = FirebaseFirestore.getInstance()
 
         val usuarios: MutableMap<String, Any> = HashMap()
-        usuarios.put("nome",nome)
+        usuarios.put("nome", nome)
 
         usuarioID = FirebaseAuth.getInstance().currentUser?.uid.toString()
-        val documentReference: DocumentReference = dataBase.collection("Usuarios").document(usuarioID)
+        val documentReference: DocumentReference =
+            dataBase.collection("Usuarios").document(usuarioID)
         documentReference.set(usuarios)
 
             .addOnSuccessListener(OnSuccessListener {
@@ -147,10 +168,12 @@ class FragmentScreenOfRegister : Fragment() {
             })
     }
 
+
     private fun backPage() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             findNavController().popBackStack()
         }
     }
+
 
 }

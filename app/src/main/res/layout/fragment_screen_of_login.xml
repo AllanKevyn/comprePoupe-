@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.core.widget.NestedScrollView
+<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
     xmlns:android="http://schemas.android.com/apk/res/android">
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.fragments.FragmentScreenOfLogin"
     android:background="@drawable/background">
 
@@ -53,13 +51,27 @@
         app:layout_constraintEnd_toEndOf="@+id/idContainerComponents"
         app:layout_constraintTop_toBottomOf="@id/idEdit_email" />
 
+
+    <CheckBox
+        android:id="@+id/idCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Manter Conectado"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="422dp"
+        app:layout_constraintStart_toStartOf="@id/idContainerComponents"
+        app:layout_constraintEnd_toEndOf="@id/idContainerComponents"
+        app:layout_constraintTop_toBottomOf="@id/idEdit_senha"
+        app:layout_constraintBottom_toTopOf="@id/idButtonEntrar"/>
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/idButtonEntrar"
         style="@style/Button"
+        android:layout_marginTop="70dp"
         android:text="Entrar"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/idEdit_senha"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/idEdit_senha" />
 
     <ProgressBar
         android:id="@+id/idProgressBar"

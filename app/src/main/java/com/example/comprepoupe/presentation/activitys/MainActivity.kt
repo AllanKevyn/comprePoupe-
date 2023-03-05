@@ -13,10 +13,4 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
     }
-
-<<<<<<< HEAD:app/src/main/java/com/example/comprepoupe/presentation/activitys/MainActivity.kt
-
-
-=======
->>>>>>> origin/main:app/src/main/java/com/example/comprepoupe/MainActivity.kt
 }

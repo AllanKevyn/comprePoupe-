@@ -18,22 +18,27 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlin.collections.HashMap
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException as FirebaseAuthWeakPasswordException1
+import kotlin.Exception as Exception1
 
 class FragmentScreenOfRegister : Fragment() {
 
     private lateinit var edit_nome: EditText
     private lateinit var edit_senha: EditText
-    //private lateinit var edit_confirmarSenha: EditText
+    private lateinit var edit_confirmarSenha: EditText
     private lateinit var edit_email: EditText
     private lateinit var bt_cadastrar: Button
 
     lateinit var usuarioID: String
 
-    val messeges = arrayOf("Preencha todos os campos", "Cadastro realizado com sucesso")
+    val messeges = arrayOf(
+        "Preencha todos os campos",
+        "Cadastro realizado com sucesso",
+        "As senhas não correspondem, digite novamente"
+    )
 
 
     private lateinit var binding: FragmentScreenOfRegisterBinding
@@ -57,7 +62,7 @@ class FragmentScreenOfRegister : Fragment() {
         edit_email = binding.idEditTextEmailCadastro
         edit_senha = binding.idEditTextSenhaCadastro
         bt_cadastrar = binding.idButtonTelaCadastro
-        //edit_confirmarSenha = binding.idEditTextConfirmarSenha
+        edit_confirmarSenha = binding.idEditTextConfirmarSenha
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -75,7 +80,6 @@ class FragmentScreenOfRegister : Fragment() {
             val nome = edit_nome.text.toString()
             val email = edit_email.text.toString()
             val senha = edit_senha.text.toString()
-            // val confirmarSenha = edit_confirmarSenha.text.toString()
 
             if (nome.isEmpty() || email.isEmpty() || senha.isEmpty()) {
                 val snackbar =
@@ -91,15 +95,34 @@ class FragmentScreenOfRegister : Fragment() {
                 }
             } else {
                 view?.let {
-                    registerUser(email, senha)
+                    confirmPassword()
+
                 }
             }
 
         }
     }
 
+    private fun confirmPassword() {
+        val email = edit_email.text.toString()
+        val senha = edit_senha.text.toString()
+        val password = edit_senha.text.toString()
+        val confirmPassword = edit_confirmarSenha.text.toString()
+
+        if (confirmPassword != password) {
+
+            val snackbar = Snackbar.make(view!!, messeges[2], Snackbar.LENGTH_SHORT)
+            snackbar.setBackgroundTint(Color.WHITE)
+            snackbar.setTextColor(Color.BLACK)
+            snackbar.show()
+            return
+        }else{
+            registerUser(email, senha)
+        }
+    }
 
     private fun registerUser(email: String, senha: String) {
+
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
@@ -114,13 +137,13 @@ class FragmentScreenOfRegister : Fragment() {
                     val erro: String
                     try {
                         throw task.exception!!
-                    } catch (e: FirebaseAuthWeakPasswordException) {
+                    } catch (e: FirebaseAuthWeakPasswordException1) {
                         erro = "Digite uma senha de no mínimo 6 caracteres"
                     } catch (e: FirebaseAuthInvalidUserException) {
                         erro = "E-mail inválido"
                     } catch (e: FirebaseAuthInvalidCredentialsException) {
                         erro = "Esta conta ja foi cadastrada"
-                    } catch (e: Exception) {
+                    } catch (e: Exception1) {
                         erro = "Erro desconhecido: ${e.message}"
                     }
 
@@ -133,19 +156,8 @@ class FragmentScreenOfRegister : Fragment() {
             }
     }
 
-//    private fun confirmPassword(senha: String, confirmarSenha: String) {
-//        FirebaseAuth.getInstance().confirmPasswordReset(senha, confirmarSenha)
-//            .addOnCompleteListener { task ->
-//
-//                if (task.isSuccessful) {
-//
-//                    val snackbar = Snackbar.make(view!!, messeges[1], Snackbar.LENGTH_SHORT)
-//                    snackbar.setBackgroundTint(Color.WHITE)
-//                    snackbar.setTextColor(Color.BLACK)
-//                    snackbar.show()
-//                }
-//            }
-//    }
+
+
 
 
     private fun saveUserData() {

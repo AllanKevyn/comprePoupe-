@@ -21,7 +21,11 @@
         android:id="@+id/fragmentScreenOfRegister"
         android:name="com.example.comprepoupe.presentation.fragments.FragmentScreenOfRegister"
         android:label="fragment_screen_of_register"
-        tools:layout="@layout/fragment_screen_of_register" />
+        tools:layout="@layout/fragment_screen_of_register" >
+        <action
+            android:id="@+id/action_fragmentScreenOfRegister_to_fragmentScreenOfLogin"
+            app:destination="@id/fragmentScreenOfLogin" />
+    </fragment>
     <fragment
         android:id="@+id/fragmentScreenOfUser"
         android:name="com.example.comprepoupe.presentation.fragments.FragmentScreenOfUser"
@@ -30,5 +34,13 @@
         <action
             android:id="@+id/action_fragmentScreenOfUser_to_fragmentScreenOfLogin"
             app:destination="@id/fragmentScreenOfLogin" />
+        <action
+            android:id="@+id/action_fragmentScreenOfUser_to_fragmentFinalizeCadastro"
+            app:destination="@id/fragmentFinalizeCadastro" />
     </fragment>
+    <fragment
+        android:id="@+id/fragmentFinalizeCadastro"
+        android:name="com.example.comprepoupe.presentation.fragments.FragmentFinalizeCadastro"
+        android:label="fragment_finalize_cadastro"
+        tools:layout="@layout/fragment_finalize_cadastro" />
 </navigation>

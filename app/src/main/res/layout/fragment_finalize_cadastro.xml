@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        tools:context=".presentation.fragments.FragmentFinalizeCadastro">
+
+
+        <ImageView
+            android:id="@+id/IvLogo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/imagemsemfundo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <View
+            android:id="@+id/idContainerComponentsFinalizeCadastro"
+            style="@style/ContainerComponentsFinalizeCadastro"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/IvLogo" />
+
+        <EditText
+            android:id="@+id/idEditNome"
+            style="@style/Edit_Text_Finalize_Cadastro"
+            android:layout_marginTop="20dp"
+            android:hint="Nome"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textAlignment="textStart"
+            app:layout_constraintEnd_toEndOf="@id/idContainerComponentsFinalizeCadastro"
+            app:layout_constraintStart_toStartOf="@id/idContainerComponentsFinalizeCadastro"
+            app:layout_constraintTop_toTopOf="@id/idContainerComponentsFinalizeCadastro" />
+
+
+        <EditText
+            android:id="@+id/idEditEmail"
+            style="@style/Edit_Text_Finalize_Cadastro"
+            android:layout_marginTop="12dp"
+            android:hint="Email"
+            android:padding="10dp"
+            android:textAlignment="textStart"
+            app:layout_constraintEnd_toEndOf="@id/idContainerComponentsFinalizeCadastro"
+            app:layout_constraintStart_toStartOf="@id/idContainerComponentsFinalizeCadastro"
+            app:layout_constraintTop_toBottomOf="@id/idEditNome" />
+
+        <EditText
+            android:id="@+id/idEditIdade"
+            style="@style/Edit_Text_Finalize_Cadastro"
+            android:layout_width="170dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:hint="Idade"
+            android:inputType="number"
+            android:padding="10dp"
+            android:textAlignment="textStart"
+            app:layout_constraintStart_toStartOf="@id/idContainerComponentsFinalizeCadastro"
+            app:layout_constraintTop_toBottomOf="@id/idEditEmail" />
+
+        <EditText
+            android:id="@+id/idEditSexo"
+            style="@style/Edit_Text_Finalize_Cadastro"
+            android:layout_width="150dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="12dp"
+            android:hint="Sexo"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textAlignment="textStart"
+            app:layout_constraintStart_toEndOf="@id/idEditIdade"
+            app:layout_constraintTop_toBottomOf="@id/idEditEmail"
+            app:layout_constraintEnd_toEndOf="@+id/idContainerComponentsFinalizeCadastro"/>
+
+        <EditText
+            android:id="@+id/idEditCep"
+            style="@style/Edit_Text_Finalize_Cadastro"
+            android:layout_width="240dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:hint="CEP"
+            android:padding="10dp"
+            android:textAlignment="textStart"
+            app:layout_constraintStart_toStartOf="@id/idContainerComponentsFinalizeCadastro"
+            app:layout_constraintTop_toBottomOf="@id/idEditIdade" />
+
+        <EditText
+            android:id="@+id/idEditEstado"
+            style="@style/Edit_Text_Finalize_Cadastro"
+            android:layout_width="80dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="12dp"
+            android:hint="Estado"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textAlignment="textStart"
+            app:layout_constraintStart_toEndOf="@id/idEditCep"
+            app:layout_constraintTop_toBottomOf="@id/idEditSexo"
+            app:layout_constraintEnd_toEndOf="@+id/idContainerComponentsFinalizeCadastro"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
+
+

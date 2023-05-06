@@ -11,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.activity.addCallback
 import androidx.navigation.fragment.findNavController
+import com.example.comprepoupe.R
 import com.example.comprepoupe.databinding.FragmentScreenOfRegisterBinding
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
@@ -75,7 +76,19 @@ class FragmentScreenOfRegister : Fragment() {
         setupClicks()
     }
 
-    private fun setupClicks() {
+    private fun setupClicks(){
+        actionCadastrar()
+        actionLogin()
+    }
+
+    private fun actionLogin(){
+        binding.textLogin.setOnClickListener {
+            val bundle = Bundle().apply {}
+            findNavController().navigate(R.id.action_fragmentScreenOfRegister_to_fragmentScreenOfLogin, bundle)
+        }
+    }
+
+    private fun actionCadastrar() {
         bt_cadastrar.setOnClickListener {
             val nome = edit_nome.text.toString()
             val email = edit_email.text.toString()
@@ -183,7 +196,7 @@ class FragmentScreenOfRegister : Fragment() {
 
     private fun backPage() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
-            findNavController().popBackStack()
+            null
         }
     }
 

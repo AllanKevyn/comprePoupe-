@@ -49,13 +49,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="90dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginTop="28dp"
         android:text=""
         android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@id/idImageViewIcUser"
         app:layout_constraintTop_toBottomOf="@id/idContainerComponents" />
 
@@ -64,8 +65,8 @@
         android:layout_width="match_parent"
         android:layout_height="28dp"
         android:layout_marginStart="90dp"
+        android:layout_marginTop="42dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginTop="48dp"
         android:text=""
         android:textColor="@color/black"
         android:textSize="20dp"
@@ -73,19 +74,30 @@
         app:layout_constraintStart_toEndOf="@id/idImageViewIcEmail"
         app:layout_constraintTop_toBottomOf="@id/idTextViewUser" />
 
-    <Button
+    <TextView
         android:id="@+id/idButtonLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Logout"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/idButtonFilanizarCadastro"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:backgroundTint="@color/black"
-        android:text="Deslogar"
+        android:text="Finalizar cadastro"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/idImageViewIcEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/idImageViewIcEmail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

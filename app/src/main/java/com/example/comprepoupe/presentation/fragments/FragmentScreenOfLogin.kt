@@ -10,17 +10,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ProgressBar
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.comprepoupe.R
 import com.example.comprepoupe.databinding.FragmentScreenOfLoginBinding
+import com.example.comprepoupe.model.UserMenager
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.launch
 
 
 class FragmentScreenOfLogin : Fragment() {
-
 
     private lateinit var binding: FragmentScreenOfLoginBinding
 
@@ -28,8 +31,17 @@ class FragmentScreenOfLogin : Fragment() {
     private lateinit var edit_senha: EditText
     private lateinit var button_entrar: Button
     private lateinit var progress_bar: ProgressBar
+    private lateinit var checkBox: CheckBox
+    private lateinit var userMenager: UserMenager
+
 
     val messeges = arrayOf("Preencha todos os campos")
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        userMenager = UserMenager(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,19 +50,65 @@ class FragmentScreenOfLogin : Fragment() {
 
         binding = FragmentScreenOfLoginBinding.inflate(inflater, container, false)
         startComponents()
+        readDataUser()
         return binding.root
     }
+
+    private fun keepConected() {
+        lifecycleScope.launch {
+            val user = userMenager.readDataUser()
+            if (user.checkBox) {
+
+                val bundle = Bundle().apply { }
+                findNavController().navigate(
+                    R.id.action_fragmentScreenOfLogin_to_fragmentSecondStageOfRegistration,
+                    bundle
+                )
+            }
+        }
+    }
+
 
     private fun startComponents() {
         edit_email = binding.idEditEmail
         edit_senha = binding.idEditSenha
         button_entrar = binding.idButtonEntrar
         progress_bar = binding.idProgressBar
+        checkBox = binding.idCheckBox
+    }
+
+    private fun saveDataUser() {
+        val email = binding.idEditEmail.text.toString()
+        val senha = binding.idEditSenha.text.toString()
+        val checkBox = binding.idCheckBox.isChecked
+
+        lifecycleScope.launch {
+            userMenager.saveDataUser(email, senha, checkBox)
+        }
+    }
+
+    private fun readDataUser() {
+        lifecycleScope.launch {
+            val user = userMenager.readDataUser()
+            binding.idEditEmail.setText(user.email)
+            binding.idEditSenha.setText(user.senha)
+            binding.idCheckBox.isChecked = user.checkBox
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setup()
+        keepConected()
+    }
+
+    private fun observerCheckBox() {
+
+        if (binding.idCheckBox.isChecked) {
+            lifecycleScope.launch {
+                saveDataUser()
+            }
+        }
     }
 
 
@@ -64,6 +122,7 @@ class FragmentScreenOfLogin : Fragment() {
         }
         binding.idButtonEntrar.setOnClickListener {
             setupButtonEntrar()
+
         }
     }
 
@@ -78,13 +137,14 @@ class FragmentScreenOfLogin : Fragment() {
             snackbar.setTextColor(Color.BLACK)
             snackbar.show()
         } else {
-            authenticateUser()
+            authenticateUser(edit_email.text.toString(), edit_senha.text.toString())
+            observerCheckBox()
         }
     }
 
-    private fun authenticateUser() {
-        val email = edit_email.text
-        val senha = edit_senha.text
+
+    private fun authenticateUser(email: String, senha: String) {
+
         val delayInMillis = 3000L
 
         FirebaseAuth.getInstance().signInWithEmailAndPassword(

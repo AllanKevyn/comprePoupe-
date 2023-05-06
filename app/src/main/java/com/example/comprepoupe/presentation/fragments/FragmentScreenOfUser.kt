@@ -1,6 +1,8 @@
 package com.example.comprepoupe.presentation.fragments
 
+
 import android.os.Bundle
+import android.os.UserManager
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +10,15 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.addCallback
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.comprepoupe.R
 import com.example.comprepoupe.databinding.FragmentScreenOfUserBinding
+import com.example.comprepoupe.model.UserMenager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.launch
 
 class FragmentScreenOfUser : Fragment() {
 
@@ -21,7 +26,8 @@ class FragmentScreenOfUser : Fragment() {
 
     private lateinit var nomeUsuario: TextView
     private lateinit var emailUsuario: TextView
-    private lateinit var bt_deslogar: Button
+    private lateinit var bt_deslogar: TextView
+    private lateinit var userManager: UserMenager
 
     private val dataBase: FirebaseFirestore = FirebaseFirestore.getInstance()
     private lateinit var usuarioID: String
@@ -36,6 +42,7 @@ class FragmentScreenOfUser : Fragment() {
         return binding.root
     }
 
+
     private fun initializeComponents() {
         nomeUsuario = binding.idTextViewUser
         emailUsuario = binding.idTextViewEmail
@@ -45,6 +52,7 @@ class FragmentScreenOfUser : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        userManager = UserMenager(requireContext())
         setupClicks()
         backPage()
     }
@@ -52,11 +60,16 @@ class FragmentScreenOfUser : Fragment() {
     private fun setupClicks() {
         bt_deslogar.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
-            setupBundle()
+            clearDataUser()
+            navigationToScreenLogin()
         }
     }
 
-    private fun setupBundle() {
+    private fun clearDataUser() {
+        lifecycleScope.launch { userManager.clearDataUser() }
+    }
+
+    private fun navigationToScreenLogin() {
         val bundle = Bundle().apply { }
         findNavController().navigate(
             R.id.action_fragmentScreenOfUser_to_fragmentScreenOfLogin,
@@ -65,7 +78,7 @@ class FragmentScreenOfUser : Fragment() {
     }
 
     private fun backPage() {
-       requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             null
         }
     }

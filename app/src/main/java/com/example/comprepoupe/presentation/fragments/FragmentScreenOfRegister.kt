@@ -32,6 +32,15 @@ class FragmentScreenOfRegister : Fragment() {
     private lateinit var edit_confirmarSenha: EditText
     private lateinit var edit_email: EditText
     private lateinit var bt_cadastrar: Button
+    private lateinit var edit_sexo: EditText
+    private lateinit var edit_cep: EditText
+    private lateinit var edit_rua: EditText
+    private lateinit var edit_estado: EditText
+    private lateinit var edit_cidade: EditText
+    private lateinit var edit_bairro: EditText
+    private lateinit var edit_complemento: EditText
+    private lateinit var edit_telefone: EditText
+
 
     lateinit var usuarioID: String
 
@@ -64,6 +73,16 @@ class FragmentScreenOfRegister : Fragment() {
         edit_senha = binding.idEditTextSenhaCadastro
         bt_cadastrar = binding.idButtonTelaCadastro
         edit_confirmarSenha = binding.idEditTextConfirmarSenha
+        edit_sexo = binding.idEditTextSexo
+        edit_cep = binding.idEditTextCep
+        edit_estado = binding.idEditTextEstado
+        edit_bairro = binding.idEditTextNomeBairro
+        edit_complemento = binding.idEditTextComplemento
+        edit_rua = binding.idEditTextRua
+        edit_cidade = binding.idEditTextCidade
+        edit_telefone = binding.idEditTextNomeTelefone
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -76,15 +95,18 @@ class FragmentScreenOfRegister : Fragment() {
         setupClicks()
     }
 
-    private fun setupClicks(){
+    private fun setupClicks() {
         actionCadastrar()
         actionLogin()
     }
 
-    private fun actionLogin(){
+    private fun actionLogin() {
         binding.textLogin.setOnClickListener {
             val bundle = Bundle().apply {}
-            findNavController().navigate(R.id.action_fragmentScreenOfRegister_to_fragmentScreenOfLogin, bundle)
+            findNavController().navigate(
+                R.id.action_fragmentScreenOfRegister_to_fragmentScreenOfLogin,
+                bundle
+            )
         }
     }
 
@@ -93,8 +115,21 @@ class FragmentScreenOfRegister : Fragment() {
             val nome = edit_nome.text.toString()
             val email = edit_email.text.toString()
             val senha = edit_senha.text.toString()
+            val sexo = edit_sexo.text.toString()
+            val cep = edit_cep.text.toString()
+            val rua = edit_rua.text.toString()
+            val estado = edit_estado.text.toString()
+            val cidade = edit_cidade.text.toString()
+            val bairro = edit_bairro.text.toString()
+            val complemento = edit_complemento.text.toString()
+            val telefone = edit_telefone.text.toString()
 
-            if (nome.isEmpty() || email.isEmpty() || senha.isEmpty()) {
+            if (nome.isEmpty() || email.isEmpty() ||
+                senha.isEmpty() || sexo.isEmpty() ||
+                cep.isEmpty() || rua.isEmpty() ||
+                estado.isEmpty() || cidade.isEmpty() ||
+                bairro.isEmpty() || complemento.isEmpty() || telefone.isEmpty()
+            ) {
                 val snackbar =
                     view?.let { it1 -> Snackbar.make(it1, messeges[0], Snackbar.LENGTH_SHORT) }
                 if (snackbar != null) {
@@ -129,7 +164,7 @@ class FragmentScreenOfRegister : Fragment() {
             snackbar.setTextColor(Color.BLACK)
             snackbar.show()
             return
-        }else{
+        } else {
             registerUser(email, senha)
         }
     }
@@ -170,15 +205,31 @@ class FragmentScreenOfRegister : Fragment() {
     }
 
 
-
-
-
     private fun saveUserData() {
         val nome = edit_nome.text.toString()
+        val email = edit_email.text.toString()
+        val sexo = edit_sexo.text.toString()
+        val cep = edit_cep.text.toString()
+        val rua = edit_rua.text.toString()
+        val estado = edit_estado.text.toString()
+        val cidade = edit_cidade.text.toString()
+        val bairro = edit_bairro.text.toString()
+        val complemento = edit_complemento.text.toString()
+        val telefone = edit_telefone.text.toString()
+
         val dataBase = FirebaseFirestore.getInstance()
 
         val usuarios: MutableMap<String, Any> = HashMap()
         usuarios.put("nome", nome)
+        usuarios.put("email", email)
+        usuarios.put("sexo", sexo)
+        usuarios.put("cep", cep)
+        usuarios.put("rua", rua)
+        usuarios.put("estado", estado)
+        usuarios.put("cidade", cidade)
+        usuarios.put("bairro", bairro)
+        usuarios.put("complemento", complemento)
+        usuarios.put("telefone", telefone)
 
         usuarioID = FirebaseAuth.getInstance().currentUser?.uid.toString()
         val documentReference: DocumentReference =

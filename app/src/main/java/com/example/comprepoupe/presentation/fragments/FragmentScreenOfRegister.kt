@@ -21,6 +21,11 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
+import org.jetbrains.anko.doAsync
+import org.json.JSONObject
+import java.io.BufferedReader
+import java.net.HttpURLConnection
+import java.net.URL
 import kotlin.collections.HashMap
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException as FirebaseAuthWeakPasswordException1
 import kotlin.Exception as Exception1
@@ -98,6 +103,7 @@ class FragmentScreenOfRegister : Fragment() {
     private fun setupClicks() {
         actionCadastrar()
         actionLogin()
+        searchCep()
     }
 
     private fun actionLogin() {
@@ -148,6 +154,34 @@ class FragmentScreenOfRegister : Fragment() {
                 }
             }
 
+        }
+    }
+
+    private fun searchCep() {
+        binding.buttonSearchCep.setOnClickListener {
+            val cep = binding.idEditTextCep.text.toString()
+            setupCep(cep)
+        }
+    }
+
+    private fun setupCep(cep: String){
+        val url = "https://viacep.com.br/ws/$cep/json/"
+        doAsync {
+            val url = URL(url)
+            val urlConnection = url.openConnection() as HttpURLConnection
+            val content: String = urlConnection.inputStream.bufferedReader().use(BufferedReader::readText)
+            val json = JSONObject(content)
+            activity?.runOnUiThread{
+                val rua = json.getString("logradouro")
+                val estado = json.getString("uf")
+                val cidade = json.getString("localidade")
+                val bairro = json.getString("bairro")
+
+                binding.idEditTextRua.setText(rua)
+                binding.idEditTextEstado.setText(estado)
+                binding.idEditTextCidade.setText(cidade)
+                binding.idEditTextNomeBairro.setText(bairro)
+            }
         }
     }
 

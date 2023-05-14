@@ -17,9 +17,8 @@
 
     <style name="ContainerComponentsRegister">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">560dp</item>
+        <item name="android:layout_height">450dp</item>
         <item name="android:background">@drawable/container_components</item>
-        <item name="android:layout_margin">20dp</item>
     </style>
 
     <style name="ContainerComponentsFinalizeCadastro">
@@ -35,18 +34,15 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">300dp</item>
         <item name="android:background">@drawable/container_components</item>
-        <item name="android:layout_margin">20dp</item>
     </style>
 
     <style name="Edit_Text">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/edit_text_background</item>
-        <item name="android:padding">10dp</item>
+        <item name="android:padding">5dp</item>
         <item name="android:maxLength">30</item>
-        <item name="android:layout_marginLeft">40dp</item>
-        <item name="android:layout_marginRight">40dp</item>
-        <item name="android:layout_marginTop">15dp</item>
+
     </style>
 
     <style name="Edit_Text_Finalize_Cadastro">

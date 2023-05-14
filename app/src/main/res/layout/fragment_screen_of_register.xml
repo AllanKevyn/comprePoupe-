@@ -10,181 +10,197 @@
     <TextView
         android:id="@+id/textLogin"
         style="@style/TextButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Login"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20sp"
+        android:gravity="end"
+        android:text="Fazer Login"
+        android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idButtonTelaCadastro"
-        app:layout_constraintVertical_bias="0.058" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <View
-        android:id="@+id/idContainerComponents"
+        android:id="@+id/idContainerComponentsCampos"
         style="@style/ContainerComponentsRegister"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/idEditTextNomeCadastro"
         style="@style/Edit_Text"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
         android:hint="Nome"
-        app:layout_constraintEnd_toEndOf="@+id/idContainerComponents"
-        app:layout_constraintStart_toStartOf="@+id/idContainerComponents"
-        app:layout_constraintTop_toTopOf="@+id/idContainerComponents" />
+        app:layout_constraintEnd_toEndOf="@+id/idContainerComponentsCampos"
+        app:layout_constraintStart_toStartOf="@+id/idContainerComponentsCampos"
+        app:layout_constraintTop_toTopOf="@+id/idContainerComponentsCampos" />
 
     <EditText
         android:id="@+id/idEditTextEmailCadastro"
         style="@style/Edit_Text"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
         android:drawableRight="@drawable/ic_email"
         android:hint="Email"
-        app:layout_constraintEnd_toEndOf="@+id/idContainerComponents"
-        app:layout_constraintStart_toStartOf="@+id/idContainerComponents"
+        app:layout_constraintEnd_toEndOf="@+id/idContainerComponentsCampos"
+        app:layout_constraintStart_toStartOf="@+id/idContainerComponentsCampos"
         app:layout_constraintTop_toBottomOf="@+id/idEditTextNomeCadastro" />
+
+
+    <EditText
+        android:id="@+id/idEditTextSexo"
+        style="@style/Edit_Text"
+        android:layout_width="70dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:hint="Sexo"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:textAlignment="center"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="146dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/idEditTextEmailCadastro"/>
 
 
     <EditText
         android:id="@+id/idEditTextCep"
         style="@style/Edit_Text"
-        android:layout_width="180dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="45dp"
+        android:layout_width="170dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
         android:hint="Cep"
-        app:layout_constraintEnd_toEndOf="@+id/idContainerComponents"
-        app:layout_constraintTop_toBottomOf="@+id/idEditTextEmailCadastro" />
+        app:layout_constraintTop_toBottomOf="@id/idEditTextEmailCadastro"
+        app:layout_constraintStart_toEndOf="@id/idEditTextSexo"/>
+
 
     <Button
         android:id="@+id/buttonSearchCep"
         android:layout_width="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10sp"
         android:layout_height="30dp"
-        app:layout_constraintEnd_toEndOf="@+id/idContainerComponents"
-        app:layout_constraintStart_toEndOf="@+id/idEditTextCep"
-        app:layout_constraintTop_toBottomOf="@+id/idEditTextEmailCadastro"
-        app:layout_constraintBottom_toTopOf="@id/idEditTextRua" />
-
-    <EditText
-        android:id="@+id/idEditTextSexo"
-        style="@style/Edit_Text"
-        android:layout_width="100dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="11dp"
-        android:maxLength="1"
-        android:textAlignment="center"
-        android:inputType="textCapCharacters"
-        android:hint="Sexo"
-        app:layout_constraintEnd_toStartOf="@+id/idEditTextCep"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/idContainerComponents"
-        app:layout_constraintTop_toBottomOf="@+id/idEditTextEmailCadastro" />
+        app:layout_constraintTop_toBottomOf="@id/idEditTextEmailCadastro"
+        app:layout_constraintStart_toEndOf="@+id/idEditTextCep"/>
 
     <EditText
         android:id="@+id/idEditTextRua"
         style="@style/Edit_Text"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
         android:hint="Rua"
-        android:maxLines="1"
-        android:maxLength="100"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/idContainerComponents"
-        app:layout_constraintStart_toStartOf="@+id/idContainerComponents"
-        app:layout_constraintTop_toBottomOf="@+id/idEditTextCep" />
+        android:maxLength="100"
+        android:maxLines="1"
+        app:layout_constraintEnd_toEndOf="@+id/idContainerComponentsCampos"
+        app:layout_constraintStart_toStartOf="@+id/idContainerComponentsCampos"
+        app:layout_constraintTop_toBottomOf="@+id/idEditTextSexo" />
 
 
     <EditText
         android:id="@+id/idEditTextEstado"
         style="@style/Edit_Text"
-        android:layout_width="90dp"
+        android:layout_width="110dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="11dp"
+        android:layout_marginTop="10dp"
         android:hint="Estado"
+        android:maxLength="100"
         android:maxLines="1"
         android:textAlignment="center"
-        android:maxLength="100"
-        app:layout_constraintEnd_toStartOf="@+id/idEditTextCidade"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/idContainerComponents"
+        app:layout_constraintStart_toStartOf="@id/idContainerComponentsCampos"
         app:layout_constraintTop_toBottomOf="@+id/idEditTextRua" />
+
+    <EditText
+        android:id="@+id/idEditTextCidade"
+        style="@style/Edit_Text"
+        android:layout_width="160dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:hint="Cidade"
+        android:maxLength="100"
+        android:maxLines="1"
+        app:layout_constraintStart_toEndOf="@+id/idEditTextEstado"
+        app:layout_constraintTop_toBottomOf="@+id/idEditTextRua" />
+
 
     <EditText
         android:id="@+id/idEditTextNomeBairro"
         style="@style/Edit_Text"
-        android:layout_width="130dp"
+        android:layout_width="135dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         android:hint="Bairro"
-        android:maxLines="1"
         android:maxLength="100"
-        app:layout_constraintEnd_toStartOf="@+id/idEditTextNomeTelefone"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/idContainerComponents"
+        android:maxLines="1"
+        app:layout_constraintStart_toStartOf="@id/idContainerComponentsCampos"
         app:layout_constraintTop_toBottomOf="@+id/idEditTextEstado" />
 
     <EditText
         android:id="@+id/idEditTextNomeTelefone"
         style="@style/Edit_Text"
-        android:layout_width="170dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="20dp"
+        android:layout_width="135dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:hint="Telefone"
         android:inputType="number"
         android:maxLength="13"
-        android:hint="Telefone"
-        app:layout_constraintEnd_toEndOf="@+id/idContainerComponents"
-        app:layout_constraintTop_toBottomOf="@+id/idEditTextEstado" />
+        app:layout_constraintStart_toEndOf="@+id/idEditTextNomeBairro"
+        app:layout_constraintTop_toBottomOf="@+id/idEditTextCidade" />
 
-    <EditText
-        android:id="@+id/idEditTextCidade"
-        style="@style/Edit_Text"
-        android:layout_width="210dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="20dp"
-        android:hint="Cidade"
-        android:maxLines="1"
-        android:maxLength="100"
-        app:layout_constraintEnd_toEndOf="@+id/idContainerComponents"
-        app:layout_constraintTop_toBottomOf="@+id/idEditTextRua" />
 
     <EditText
         android:id="@+id/idEditTextComplemento"
         style="@style/Edit_Text"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
         android:hint="Complemento"
         android:inputType="text"
         android:lines="4"
         android:maxLength="150"
         android:padding="25dp"
         android:textAlignment="gravity"
-        app:layout_constraintEnd_toEndOf="@+id/idContainerComponents"
-        app:layout_constraintStart_toStartOf="@+id/idContainerComponents"
+        app:layout_constraintEnd_toEndOf="@id/idContainerComponentsCampos"
+        app:layout_constraintStart_toStartOf="@id/idContainerComponentsCampos"
         app:layout_constraintTop_toBottomOf="@+id/idEditTextNomeBairro" />
 
     <EditText
         android:id="@+id/idEditTextSenhaCadastro"
         style="@style/Edit_Text"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
         android:drawableRight="@drawable/ic_eye"
         android:hint="Senha"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/idContainerComponents"
-        app:layout_constraintStart_toStartOf="@+id/idContainerComponents"
+        app:layout_constraintEnd_toEndOf="@id/idContainerComponentsCampos"
+        app:layout_constraintStart_toStartOf="@id/idContainerComponentsCampos"
         app:layout_constraintTop_toBottomOf="@+id/idEditTextComplemento" />
-
 
     <EditText
         android:id="@+id/idEditTextConfirmarSenha"
         style="@style/Edit_Text"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
         android:drawableRight="@drawable/ic_eye"
         android:hint="Confirmar Senha"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@id/idContainerComponents"
-        app:layout_constraintStart_toStartOf="@id/idContainerComponents"
+        app:layout_constraintEnd_toEndOf="@+id/idContainerComponentsCampos"
+        app:layout_constraintStart_toStartOf="@id/idContainerComponentsCampos"
         app:layout_constraintTop_toBottomOf="@+id/idEditTextSenhaCadastro" />
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/idButtonTelaCadastro"
@@ -196,6 +212,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idContainerComponents" />
+        app:layout_constraintTop_toBottomOf="@id/idContainerComponentsCampos" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

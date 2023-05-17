@@ -17,7 +17,7 @@
 
     <style name="ContainerComponentsRegister">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">450dp</item>
+        <item name="android:layout_height">690dp</item>
         <item name="android:background">@drawable/container_components</item>
     </style>
 
@@ -32,7 +32,7 @@
 
     <style name="ContainerComponentsLogin">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">300dp</item>
+        <item name="android:layout_height">330dp</item>
         <item name="android:background">@drawable/container_components</item>
     </style>
 
@@ -40,7 +40,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/edit_text_background</item>
-        <item name="android:padding">5dp</item>
+        <item name="android:padding">20dp</item>
         <item name="android:maxLength">30</item>
 
     </style>

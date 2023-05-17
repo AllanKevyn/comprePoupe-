@@ -122,7 +122,6 @@ class FragmentScreenOfLogin : Fragment() {
         }
         binding.idButtonEntrar.setOnClickListener {
             setupButtonEntrar()
-
         }
     }
 

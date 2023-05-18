@@ -114,6 +114,17 @@ class FragmentScreenOfLogin : Fragment() {
 
     private fun setup() {
         setupClicks()
+        recourceDev()
+    }
+
+    private fun recourceDev(){
+        binding.buttonDev.setOnClickListener {
+            val bundle = Bundle().apply { }
+            findNavController().navigate(
+                R.id.action_fragmentScreenOfLogin_to_homeFragment,
+                bundle
+            )
+        }
     }
 
     private fun setupClicks() {
@@ -158,7 +169,7 @@ class FragmentScreenOfLogin : Fragment() {
 
                     val bundle = Bundle().apply { }
                     findNavController().navigate(
-                        R.id.action_fragmentScreenOfLogin_to_fragmentSecondStageOfRegistration,
+                        R.id.action_fragmentScreenOfLogin_to_homeFragment,
                         bundle
                     )
 

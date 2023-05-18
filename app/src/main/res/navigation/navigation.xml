@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_fragmentScreenOfLogin_to_fragmentSecondStageOfRegistration"
             app:destination="@id/fragmentScreenOfUser" />
+        <action
+            android:id="@+id/action_fragmentScreenOfLogin_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/fragmentScreenOfRegister"
@@ -34,13 +37,10 @@
         <action
             android:id="@+id/action_fragmentScreenOfUser_to_fragmentScreenOfLogin"
             app:destination="@id/fragmentScreenOfLogin" />
-        <action
-            android:id="@+id/action_fragmentScreenOfUser_to_fragmentFinalizeCadastro"
-            app:destination="@id/fragmentFinalizeCadastro" />
     </fragment>
     <fragment
-        android:id="@+id/fragmentFinalizeCadastro"
-        android:name="com.example.comprepoupe.presentation.fragments.FragmentFinalizeCadastro"
-        android:label="fragment_finalize_cadastro"
-        tools:layout="@layout/fragment_finalize_cadastro" />
+        android:id="@+id/homeFragment"
+        android:name="com.example.comprepoupe.presentation.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
 </navigation>

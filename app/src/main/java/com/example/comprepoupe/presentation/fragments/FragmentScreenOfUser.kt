@@ -2,19 +2,17 @@ package com.example.comprepoupe.presentation.fragments
 
 
 import android.os.Bundle
-import android.os.UserManager
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import androidx.activity.addCallback
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.comprepoupe.R
 import com.example.comprepoupe.databinding.FragmentScreenOfUserBinding
-import com.example.comprepoupe.model.UserMenager
+import com.example.comprepoupe.data.model.UserMenager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore

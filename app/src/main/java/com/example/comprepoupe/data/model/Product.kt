@@ -1,4 +1,4 @@
-package com.example.comprepoupe.model
+package com.example.comprepoupe.data.model
 
 import java.io.Serializable
 

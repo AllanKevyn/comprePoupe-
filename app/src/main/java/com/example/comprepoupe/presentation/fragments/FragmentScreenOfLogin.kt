@@ -17,7 +17,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.comprepoupe.R
 import com.example.comprepoupe.databinding.FragmentScreenOfLoginBinding
-import com.example.comprepoupe.model.UserMenager
+import com.example.comprepoupe.data.model.UserMenager
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch

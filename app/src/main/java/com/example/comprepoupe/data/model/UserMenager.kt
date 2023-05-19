@@ -1,4 +1,4 @@
-package com.example.comprepoupe.model
+package com.example.comprepoupe.data.model
 
 import android.content.Context
 import androidx.datastore.core.DataStore
@@ -7,7 +7,6 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import com.example.comprepoupe.presentation.fragments.FragmentScreenOfLogin
 import kotlinx.coroutines.flow.first
 
 class UserMenager(val context: Context) {

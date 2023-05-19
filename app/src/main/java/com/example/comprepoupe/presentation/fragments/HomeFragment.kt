@@ -6,11 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.comprepoupe.R
 import com.example.comprepoupe.databinding.FragmentHomeBinding
-import com.example.comprepoupe.model.AdapterProduct
-import com.example.comprepoupe.model.Product
+import com.example.comprepoupe.data.model.AdapterProduct
+import com.example.comprepoupe.data.model.Product
 
 class HomeFragment : Fragment() {
 
@@ -34,6 +33,8 @@ class HomeFragment : Fragment() {
         binding.idRecyclerViewProdutos.layoutManager = layoutManager
         binding.idRecyclerViewProdutos.setHasFixedSize(true)
         binding.idRecyclerViewProdutos.adapter = adapterProduct
+
+
 
         val product1 = Product(
             R.drawable.notebook,

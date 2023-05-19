@@ -1,4 +1,4 @@
-package com.example.comprepoupe.model
+package com.example.comprepoupe.data.model
 
 import android.content.Context
 import android.view.LayoutInflater

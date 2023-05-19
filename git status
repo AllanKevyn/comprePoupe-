@@ -1,0 +1,176 @@
+[33mcommit 2ae652b62ef7d414095a77e8f6f7066593a52307[m[33m ([m[1;36mHEAD -> [m[1;32mrefactor[m[33m)[m
+Author: Dionis <martinsdionis@gmail.com>
+Date:   Fri May 19 20:10:44 2023 -0300
+
+    refactor
+
+[33mcommit 94761627b282371764ffdac8598f3e67bbb8b400[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Marllon Silibri <marllonmunhoz321@hotmail.com>
+Date:   Thu May 18 22:14:24 2023 +0100
+
+    implemented recyclerView
+
+[33mcommit a6f9075d9a08c0f57894615080c66cb5c64bbe80[m
+Author: Marllon Silibri <marllonmunhoz321@hotmail.com>
+Date:   Wed May 17 22:26:56 2023 +0100
+
+    teste
+
+[33mcommit 3220fa2477dc4e0d3b6f48443b7dc400d2f85b0d[m
+Author: Marllon Silibri <marllonmunhoz321@hotmail.com>
+Date:   Wed May 17 18:34:39 2023 +0100
+
+    Layout login and register auteration
+
+[33mcommit 7ed44a409e799ff52693bf425f13ac9e560b7467[m
+Author: Marllon Silibri <marllonmunhoz321@hotmail.com>
+Date:   Sun May 14 15:35:25 2023 +0100
+
+    layout screen register
+
+[33mcommit 4a21e5f7aa6cabfabcf596a15a1e5fc33731df72[m
+Author: Marllon Silibri <marllonmunhoz321@hotmail.com>
+Date:   Wed May 10 19:39:06 2023 +0100
+
+    search cep implemented
+
+[33mcommit e84666eaea278aeb3743358740594c177f63428d[m
+Author: Marllon Silibri <marllonmunhoz321@hotmail.com>
+Date:   Tue May 9 18:54:02 2023 +0100
+
+    Screen Finished
+
+[33mcommit 887f37441987db806eec32f5841480f2225ed249[m
+Author: Marllon Silibri <marllonmunhoz321@hotmail.com>
+Date:   Sun May 7 14:12:50 2023 +0100
+
+    Layout tela de cadastro
+
+[33mcommit c8a894a005d66d566f8ccb6d5c78f991009bebfd[m[33m ([m[1;31morigin/branchNavigation[m[33m, [m[1;32mbranchNavigation[m[33m)[m
+Author: Marllon Silibri <marllonmunhoz321@hotmail.com>
+Date:   Sat May 6 23:16:36 2023 +0100
+
+    keep conected finished
+
+[33mcommit ab7bcb9cbfe580779fa075d61c6ebefa7940e65f[m
+Author: Marllon Silibri <marllonmunhoz321@hotmail.com>
+Date:   Sun Mar 5 10:39:14 2023 +0000
+
+    confirm password implementation
+
+[33mcommit bfc307b8b80115a828ec286bc861cbb65e2c38d5[m
+Merge: 5cebc3e 0e1a97d
+Author: Marllon Silibri <marllonmunhoz321@hotmail.com>
+Date:   Mon Feb 27 19:37:56 2023 +0000
+
+    pra main
+
+[33mcommit 5cebc3e5120d758bd296af7581af820e1f87f135[m
+Author: Marllon Silibri <marllonmunhoz321@hotmail.com>
+Date:   Mon Feb 27 19:26:05 2023 +0000
+
+    commit final
+
+[33mcommit fc41a1c6a1ca069fbcf486d186bda9e57ffb13c7[m
+Author: Marllon Silibri <marllonmunhoz321@hotmail.com>
+Date:   Wed Feb 22 21:37:08 2023 +0000
+
+    retrieveYserData
+
+[33mcommit 41d955c9019ae4bc0efa6094471eed0c08e3653b[m
+Author: Marllon Silibri <marllonmunhoz321@hotmail.com>
+Date:   Tue Feb 21 14:03:37 2023 +0000
+
+    implementation screen of user
+
+[33mcommit a104c2438820460e8a5ac8cdb3efadf76557aa6a[m
+Author: Marllon Silibri <marllonmunhoz321@hotmail.com>
+Date:   Sun Feb 19 01:42:40 2023 +0000
+
+    authentication completed
+
+[33mcommit 42fd7ec7e6c503c08751292dd5b1ccdadc9d8d9f[m
+Author: Marllon Silibri <marllonmunhoz321@hotmail.com>
+Date:   Thu Feb 16 22:55:46 2023 +0000
+
+    problem solving
+
+[33mcommit 668afccf5236f89e4415d668ac88f81b76abd590[m
+Author: Marllon Silibri <marllonmunhoz321@hotmail.com>
+Date:   Tue Feb 14 23:55:52 2023 +0000
+
+    configuring authentication
+
+[33mcommit 133ce2caef396f99dd88e2b64dd0491a75762547[m
+Author: Marllon Silibri <marllonmunhoz321@hotmail.com>
+Date:   Mon Feb 13 21:19:12 2023 +0000
+
+    Fire base dependency implementation
+
+[33mcommit 47bfdc9a01974ff35ad1a0f1e71073f31584c8ea[m
+Author: Marllon Silibri <marllonmunhoz321@hotmail.com>
+Date:   Sat Feb 11 00:16:12 2023 +0000
+
+    layoutLoginRegister
+
+[33mcommit e94198e9c33ef35d5c4ba6ccad8420a638240e22[m
+Author: Marllon Silibri <marllonmunhoz321@hotmail.com>
+Date:   Fri Feb 10 20:22:07 2023 +0000
+
+    Adicionando nav. resource
+
+[33mcommit 0e1a97d2eb8f39edf05441f8eb03e9753d74379a[m
+Merge: 8c67ab3 9f7fe45
+Author: Dionis <martinsdionis@gmail.com>
+Date:   Thu Feb 9 22:41:22 2023 -0300
+
+    Merge branch 'main' of https://github.com/AllanKevyn/comprePoupe-
+
+[33mcommit 8c67ab380d402df1977a26d23ce43558839e0fbd[m
+Author: Dionis <martinsdionis@gmail.com>
+Date:   Thu Feb 9 22:37:35 2023 -0300
+
+    initializing
+
+[33mcommit 9f7fe453a155212465eeb61337e5882565772bbd[m
+Author: Marllon Silibri <marllonmunhoz321@hotmail.com>
+Date:   Fri Feb 10 00:07:46 2023 +0000
+
+    test
+
+[33mcommit c5a150a49e970f5d8272a5cfb79473d7a60872bf[m
+Author: Marllon Silibri <marllonmunhoz321@hotmail.com>
+Date:   Thu Feb 9 23:51:37 2023 +0000
+
+    teste
+
+[33mcommit 3be5192423753b2d26ed3f786724ca197f5491b8[m
+Author: Rogerio Cardoso <dev.rogeriof@gmail.com>
+Date:   Thu Feb 9 20:40:08 2023 -0300
+
+    removendo teste
+
+[33mcommit 854f2dce647b7a58fc54222af646c0cec4c3b896[m
+Merge: 2b96a32 c994b76
+Author: Dionis <martinsdionis@gmail.com>
+Date:   Thu Feb 9 20:39:46 2023 -0300
+
+    Merge branch 'main' of https://github.com/AllanKevyn/comprePoupe-
+
+[33mcommit c994b7699218efef71c3aa2b2734d1cc9ced54ac[m
+Author: Rogerio Cardoso <dev.rogeriof@gmail.com>
+Date:   Thu Feb 9 20:38:10 2023 -0300
+
+    teste
+
+[33mcommit 2b96a32172780b12450f1d388bb0aeadc85c7b43[m
+Author: Dionis <martinsdionis@gmail.com>
+Date:   Thu Feb 9 20:37:54 2023 -0300
+
+    teste
+
+[33mcommit 2540dfef4b19d7bdf4191d51a82d36f451c8aa76[m
+Author: AllanKevyn <aksilvasouza@hotmail.com>
+Date:   Thu Feb 9 20:26:57 2023 -0300
+
+    First commit by Allan

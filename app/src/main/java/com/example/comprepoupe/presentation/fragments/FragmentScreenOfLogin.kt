@@ -142,7 +142,6 @@ class FragmentScreenOfLogin : Fragment() {
             snackbar.show()
         } else {
             authenticateUser(edit_email.text.toString(), edit_senha.text.toString())
-            observerCheckBox()
         }
     }
 
@@ -160,13 +159,15 @@ class FragmentScreenOfLogin : Fragment() {
 
                 val handler = Handler(Looper.getMainLooper())
                 handler.postDelayed({
-
-                    val bundle = Bundle().apply { }
-                    findNavController().navigate(
-                        R.id.action_fragmentScreenOfLogin_to_homeFragment,
-                        bundle
-                    )
-
+                    if (binding.idCheckBox.isChecked) {
+                        saveDataUser()
+                    } else {
+                        val bundle = Bundle().apply { }
+                        findNavController().navigate(
+                            R.id.action_fragmentScreenOfLogin_to_homeFragment,
+                            bundle
+                        )
+                    }
                 }, delayInMillis)
 
             } else {

@@ -10,7 +10,7 @@ import androidx.datastore.preferences.preferencesDataStore
 import com.example.comprepoupe.presentation.fragments.FragmentScreenOfLogin
 import kotlinx.coroutines.flow.first
 
-class UserMenager(val context: Context) {
+class UserMeneger(val context: Context) {
 
 
     companion object {

@@ -3,6 +3,8 @@ package com.example.comprepoupe.presentation.activitys
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.Window
+import android.view.WindowManager
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -20,9 +22,10 @@ class ReceivingScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityReceivingScreenBinding.inflate(layoutInflater)
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(binding.root)
-        supportActionBar?.hide()
-
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         setup()
     }
 
@@ -32,19 +35,25 @@ class ReceivingScreenActivity : AppCompatActivity() {
     }
 
 
-    private fun navigationDrawer(){
+    private fun navigationDrawer() {
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.nav_home,
-            ), drawerLayout
-        )
+
+        appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment), drawerLayout)
+
+        setSupportActionBar(binding.appBarMain.toolbar)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        // Define a visibilidade do menu lateral com base no destino atual
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.homeFragment) {
+                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
+            } else {
+                drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+            }
+        }
     }
 
     private fun setupFragment() {

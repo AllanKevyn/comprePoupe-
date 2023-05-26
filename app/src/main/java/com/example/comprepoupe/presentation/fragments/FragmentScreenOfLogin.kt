@@ -21,6 +21,10 @@ import com.example.comprepoupe.model.UserMenager
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
+import androidx.appcompat.app.AppCompatActivity
+
+
+
 
 
 class FragmentScreenOfLogin : Fragment() {
@@ -194,5 +198,14 @@ class FragmentScreenOfLogin : Fragment() {
     }
 
 
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
+    }
 }
 

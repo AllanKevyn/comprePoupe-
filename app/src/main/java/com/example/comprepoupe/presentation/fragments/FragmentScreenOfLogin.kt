@@ -142,6 +142,7 @@ class FragmentScreenOfLogin : Fragment() {
             snackbar.show()
         } else {
             authenticateUser(edit_email.text.toString(), edit_senha.text.toString())
+            observerCheckBox()
         }
     }
 

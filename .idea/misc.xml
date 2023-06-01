@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2875" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/drawable/background.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/drawable/background_search.xml" value="0.2578125" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/drawable/backgroundlogin.xml" value="0.11018518518518519" />
@@ -11,13 +12,18 @@
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/drawable/container_user.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/drawable/edit_text_background.xml" value="0.1" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/drawable/edit_text_background_finalize_cadastro.xml" value="0.136" />
+        <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/drawable/ic_baseline_exit_to_app_24.xml" value="0.2875" />
+        <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2875" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/drawable/ic_email.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/drawable/ic_eye.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/drawable/ic_user.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/drawable/ic_usere.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/drawable/side_nav_bar.xml" value="0.2875" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/activity_receiving_screen.xml" value="0.25" />
+        <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/app_bar_main.xml" value="0.2713541666666667" />
+        <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/content_main.xml" value="0.2713541666666667" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/fragment_finalize_cadastro.xml" value="0.3390804597701149" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/fragment_screen_of_login.xml" value="0.264" />
@@ -25,14 +31,21 @@
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/fragment_screen_of_user.xml" value="0.264" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/fragment_screen_products.xml" value="0.264" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/fragment_second_stage_of_registration.xml" value="0.264" />
+        <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/fragment_slide_show.xml" value="0.2713541666666667" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/item_product.xml" value="0.264" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/item_produto.xml" value="0.536" />
+        <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/nav_header_main.xml" value="0.2713541666666667" />
         <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/layout/rascunho.xml" value="0.264" />
+<<<<<<< HEAD
         <entry key="..\:/Users/marti/Desktop/Estudo DEV/clone/comprePoupe/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/Users/marti/Desktop/Estudo DEV/clone/comprePoupe/app/src/main/res/layout/fragment_screen_of_login.xml" value="0.3546875" />
         <entry key="..\:/Users/marti/Desktop/Estudo DEV/clone/comprePoupe/app/src/main/res/layout/fragment_screen_of_register.xml" value="0.3546875" />
         <entry key="..\:/Users/marti/Desktop/Estudo DEV/clone/comprePoupe/app/src/main/res/layout/fragment_screen_of_user.xml" value="0.33" />
         <entry key="..\:/Users/marti/Desktop/Estudo DEV/clone/comprePoupe/app/src/main/res/layout/item_product.xml" value="0.18" />
+=======
+        <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/menu/activity_main_drawer.xml" value="0.2713541666666667" />
+        <entry key="..\:/Users/marll/comprePoupe-/app/src/main/res/menu/main.xml" value="0.2713541666666667" />
+>>>>>>> drawer
       </map>
     </option>
   </component>

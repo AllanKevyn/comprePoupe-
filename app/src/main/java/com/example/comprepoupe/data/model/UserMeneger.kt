@@ -9,7 +9,7 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.first
 
-class UserMenager(val context: Context) {
+class UserMeneger(val context: Context) {
 
 
     companion object {

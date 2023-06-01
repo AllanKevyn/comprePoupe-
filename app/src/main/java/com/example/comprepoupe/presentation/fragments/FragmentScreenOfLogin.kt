@@ -16,12 +16,12 @@ import android.widget.ProgressBar
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.comprepoupe.R
+import com.example.comprepoupe.data.model.UserMeneger
 import com.example.comprepoupe.databinding.FragmentScreenOfLoginBinding
-import com.example.comprepoupe.data.model.UserMenager
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
-
+import androidx.appcompat.app.AppCompatActivity
 
 class FragmentScreenOfLogin : Fragment() {
 
@@ -32,7 +32,7 @@ class FragmentScreenOfLogin : Fragment() {
     private lateinit var button_entrar: Button
     private lateinit var progress_bar: ProgressBar
     private lateinit var checkBox: CheckBox
-    private lateinit var userMenager: UserMenager
+    private lateinit var userMeneger: UserMeneger
 
 
     val messeges = arrayOf("Preencha todos os campos")
@@ -40,7 +40,7 @@ class FragmentScreenOfLogin : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        userMenager = UserMenager(requireContext())
+        userMeneger = UserMeneger(requireContext())
     }
 
     override fun onCreateView(
@@ -56,12 +56,12 @@ class FragmentScreenOfLogin : Fragment() {
 
     private fun keepConected() {
         lifecycleScope.launch {
-            val user = userMenager.readDataUser()
+            val user = userMeneger.readDataUser()
             if (user.checkBox) {
 
                 val bundle = Bundle().apply { }
                 findNavController().navigate(
-                    R.id.action_fragmentScreenOfLogin_to_fragmentSecondStageOfRegistration,
+                    R.id.action_fragmentScreenOfLogin_to_homeFragment,
                     bundle
                 )
             }
@@ -83,13 +83,13 @@ class FragmentScreenOfLogin : Fragment() {
         val checkBox = binding.idCheckBox.isChecked
 
         lifecycleScope.launch {
-            userMenager.saveDataUser(email, senha, checkBox)
+            userMeneger.saveDataUser(email, senha, checkBox)
         }
     }
 
     private fun readDataUser() {
         lifecycleScope.launch {
-            val user = userMenager.readDataUser()
+            val user = userMeneger.readDataUser()
             binding.idEditEmail.setText(user.email)
             binding.idEditSenha.setText(user.senha)
             binding.idCheckBox.isChecked = user.checkBox
@@ -114,18 +114,8 @@ class FragmentScreenOfLogin : Fragment() {
 
     private fun setup() {
         setupClicks()
-        recourceDev()
     }
 
-    private fun recourceDev(){
-        binding.buttonDev.setOnClickListener {
-            val bundle = Bundle().apply { }
-            findNavController().navigate(
-                R.id.action_fragmentScreenOfLogin_to_homeFragment,
-                bundle
-            )
-        }
-    }
 
     private fun setupClicks() {
         binding.idTextCadastro.setOnClickListener {
@@ -148,7 +138,6 @@ class FragmentScreenOfLogin : Fragment() {
             snackbar.show()
         } else {
             authenticateUser(edit_email.text.toString(), edit_senha.text.toString())
-            observerCheckBox()
         }
     }
 
@@ -166,13 +155,15 @@ class FragmentScreenOfLogin : Fragment() {
 
                 val handler = Handler(Looper.getMainLooper())
                 handler.postDelayed({
-
-                    val bundle = Bundle().apply { }
-                    findNavController().navigate(
-                        R.id.action_fragmentScreenOfLogin_to_homeFragment,
-                        bundle
-                    )
-
+                    if (binding.idCheckBox.isChecked) {
+                        observerCheckBox()
+                    } else {
+                        val bundle = Bundle().apply { }
+                        findNavController().navigate(
+                            R.id.action_fragmentScreenOfLogin_to_homeFragment,
+                            bundle
+                        )
+                    }
                 }, delayInMillis)
 
             } else {
@@ -204,5 +195,14 @@ class FragmentScreenOfLogin : Fragment() {
     }
 
 
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
+    }
 }
 

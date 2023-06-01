@@ -9,10 +9,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.addCallback
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
-import com.example.comprepoupe.R
+import com.example.comprepoupe.data.model.UserMeneger
 import com.example.comprepoupe.databinding.FragmentScreenOfUserBinding
-import com.example.comprepoupe.data.model.UserMenager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
@@ -25,7 +23,7 @@ class FragmentScreenOfUser : Fragment() {
     private lateinit var nomeUsuario: TextView
     private lateinit var emailUsuario: TextView
     private lateinit var bt_deslogar: TextView
-    private lateinit var userManager: UserMenager
+    private lateinit var userManager: UserMeneger
 
     private val dataBase: FirebaseFirestore = FirebaseFirestore.getInstance()
     private lateinit var usuarioID: String
@@ -50,7 +48,7 @@ class FragmentScreenOfUser : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        userManager = UserMenager(requireContext())
+        userManager = UserMeneger(requireContext())
         setupClicks()
         backPage()
     }
@@ -59,7 +57,7 @@ class FragmentScreenOfUser : Fragment() {
         bt_deslogar.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             clearDataUser()
-            navigationToScreenLogin()
+
         }
     }
 
@@ -67,17 +65,18 @@ class FragmentScreenOfUser : Fragment() {
         lifecycleScope.launch { userManager.clearDataUser() }
     }
 
-    private fun navigationToScreenLogin() {
-        val bundle = Bundle().apply { }
-        findNavController().navigate(
-            R.id.action_fragmentScreenOfUser_to_fragmentScreenOfLogin,
-            bundle
-        )
-    }
+   // private fun navigationToScreenLogin() {
+    //        val bundle = Bundle().apply { }
+    //        findNavController().navigate(
+    //            R.id.,
+    //            bundle
+    //        )
+    //    }
 
     private fun backPage() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             null
+
         }
     }
 
